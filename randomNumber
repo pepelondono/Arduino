@@ -1,0 +1,39 @@
+/* Light up a random LED every 0,04 seconds */
+
+int LED0 = 2;
+int LED1 = 3;
+int LED2 = 4;
+int LED3 = 5;
+int LED4 = 6;
+int LED5 = 7;
+int LED6 = 8;
+int LED7 = 9;
+int LED8 = 10;
+int LED9 = 11;
+
+long randomNumber;
+
+void setup(){
+  Serial.begin(9600);
+  Serial.println("Randon Number");
+  pinMode(LED0, OUTPUT);
+  pinMode(LED1, OUTPUT);
+  pinMode(LED2, OUTPUT);
+  pinMode(LED3, OUTPUT);
+  pinMode(LED4, OUTPUT);
+  pinMode(LED5, OUTPUT);
+  pinMode(LED6, OUTPUT);
+  pinMode(LED7, OUTPUT);
+  pinMode(LED8, OUTPUT);
+  pinMode(LED9, OUTPUT);
+  
+  randomSeed(analogRead(A0));
+}
+
+void loop(){
+  randomNumber = random(2,12);
+  Serial.println(randomNumber);
+  digitalWrite(randomNumber, HIGH);
+  delay(40);
+  digitalWrite(randomNumber, LOW);
+}
